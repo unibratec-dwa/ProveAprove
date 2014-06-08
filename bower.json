@@ -1,0 +1,31 @@
+{
+  "name": "ProveAprove",
+  "version": "1.0.0",
+  "homepage": "https://github.com/denniscalazans/ProveAprove",
+  "authors": [
+    "Dennis Calazans <denniscalazans@gmail.com>"
+  ],
+  "description": "Web App modelo para a disciplina de Tecnologias Back-end do curso Design de Web Apps da Unibrarec",
+  "main": "codigoFonte/js/APP.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "webapp",
+    "receita",
+    "unibratec",
+    "pós-graduação"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "APP.js": "https://github.com/denniscalazans/APP.js.git",
+    "jquery": "~2.1.1"
+  }
+}
