@@ -1,6 +1,6 @@
 ## ProveAprove
 
-Web-App modelo para a disciplina de Tecnologias Back-end do curso Design de Web Apps da Unibrarec.
+Web-App modelo para a disciplina de Tecnologias Back-end do curso Design de Web Apps da Unibratec.
 
 ## [Estrutura do Projeto](#estrutura-do-projeto "Estrutura do Projeto")
 
@@ -49,7 +49,6 @@ Web-App modelo para a disciplina de Tecnologias Back-end do curso Design de Web 
  	                    │    └── Formulário
  	                    │    └── Confirmação de envio
  	                    └── Sair
-└──|
 ```
 
 
