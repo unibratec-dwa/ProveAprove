@@ -3,14 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Jul 11, 2014 as 06:08 PM
+-- Tempo de Geração: Jul 11, 2014 as 08:20 PM
 -- Versão do Servidor: 5.5.9
 -- Versão do PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Banco de Dados: `ProveAprove`
+-- Banco de Dados: `receitas`
 --
 
 -- --------------------------------------------------------
@@ -116,7 +116,7 @@ CREATE TABLE `receita_ingrediente` (
   `receita_id` smallint(6) NOT NULL,
   `ingrediente_id` smallint(6) NOT NULL,
   `quantidade` varchar(50) NOT NULL,
-  PRIMARY KEY (`receita_id`),
+  KEY `receita_id` (`receita_id`),
   KEY `ingrediente_id` (`ingrediente_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -128,11 +128,11 @@ INSERT INTO `receita_ingrediente` VALUES(1, 5, '1');
 INSERT INTO `receita_ingrediente` VALUES(2, 3, '1');
 INSERT INTO `receita_ingrediente` VALUES(3, 10, '1');
 INSERT INTO `receita_ingrediente` VALUES(4, 3, '1');
-INSERT INTO `receita_ingrediente` VALUES(5, 7, '');
-INSERT INTO `receita_ingrediente` VALUES(6, 2, '');
-INSERT INTO `receita_ingrediente` VALUES(7, 8, '');
-INSERT INTO `receita_ingrediente` VALUES(8, 7, '');
-INSERT INTO `receita_ingrediente` VALUES(9, 12, '');
+INSERT INTO `receita_ingrediente` VALUES(5, 7, '1');
+INSERT INTO `receita_ingrediente` VALUES(6, 2, '1');
+INSERT INTO `receita_ingrediente` VALUES(7, 8, '1');
+INSERT INTO `receita_ingrediente` VALUES(8, 7, '1');
+INSERT INTO `receita_ingrediente` VALUES(9, 12, '1');
 
 -- --------------------------------------------------------
 
@@ -165,9 +165,7 @@ CREATE TABLE `usuario_receita` (
   `receita_id` smallint(6) NOT NULL,
   `favorito` tinyint(1) DEFAULT NULL,
   `gostou` tinyint(1) DEFAULT NULL,
-  `nota` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`email`),
-  KEY `receita_id` (`receita_id`)
+  `nota` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -185,17 +183,3 @@ CREATE TABLE `usuario_receita` (
 ALTER TABLE `receita`
   ADD CONSTRAINT `receita_ibfk_1` FOREIGN KEY (`email`) REFERENCES `usuario` (`email`),
   ADD CONSTRAINT `receita_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`);
-
---
--- Restrições para a tabela `receita_ingrediente`
---
-ALTER TABLE `receita_ingrediente`
-  ADD CONSTRAINT `receita_ingrediente_ibfk_4` FOREIGN KEY (`ingrediente_id`) REFERENCES `ingrediente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `receita_ingrediente_ibfk_3` FOREIGN KEY (`receita_id`) REFERENCES `receita` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Restrições para a tabela `usuario_receita`
---
-ALTER TABLE `usuario_receita`
-  ADD CONSTRAINT `usuario_receita_ibfk_2` FOREIGN KEY (`receita_id`) REFERENCES `receita` (`id`),
-  ADD CONSTRAINT `usuario_receita_ibfk_3` FOREIGN KEY (`email`) REFERENCES `usuario` (`email`);
