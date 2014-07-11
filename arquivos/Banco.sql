@@ -3,14 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Jul 11, 2014 as 08:20 PM
+-- Tempo de Geração: Jul 11, 2014 as 08:27 PM
 -- Versão do Servidor: 5.5.9
 -- Versão do PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Banco de Dados: `receitas`
+-- Banco de Dados: `ProveAprove`
 --
 
 -- --------------------------------------------------------
@@ -115,9 +115,7 @@ INSERT INTO `receita` VALUES(9, 'leandro@gmail.com', 4, 'Suco de Uva', 'Lave bem
 CREATE TABLE `receita_ingrediente` (
   `receita_id` smallint(6) NOT NULL,
   `ingrediente_id` smallint(6) NOT NULL,
-  `quantidade` varchar(50) NOT NULL,
-  KEY `receita_id` (`receita_id`),
-  KEY `ingrediente_id` (`ingrediente_id`)
+  `quantidade` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -133,6 +131,7 @@ INSERT INTO `receita_ingrediente` VALUES(6, 2, '1');
 INSERT INTO `receita_ingrediente` VALUES(7, 8, '1');
 INSERT INTO `receita_ingrediente` VALUES(8, 7, '1');
 INSERT INTO `receita_ingrediente` VALUES(9, 12, '1');
+INSERT INTO `receita_ingrediente` VALUES(9, 7, '1');
 
 -- --------------------------------------------------------
 
@@ -165,13 +164,17 @@ CREATE TABLE `usuario_receita` (
   `receita_id` smallint(6) NOT NULL,
   `favorito` tinyint(1) DEFAULT NULL,
   `gostou` tinyint(1) DEFAULT NULL,
-  `nota` tinyint(1) DEFAULT NULL
+  `nota` tinyint(1) DEFAULT NULL,
+  KEY `email` (`email`),
+  KEY `receita_id` (`receita_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario_receita`
 --
 
+INSERT INTO `usuario_receita` VALUES('leandro@gmail.com', 1, 1, NULL, NULL);
+INSERT INTO `usuario_receita` VALUES('leandro@gmail.com', 2, NULL, 1, NULL);
 
 --
 -- Restrições para as tabelas dumpadas
