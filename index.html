@@ -1,10 +1,202 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<title>ProveAprove</title>
+
+	<!-- META TAGS -->
+	<meta name="robots" content="INDEX,FOLLOW" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="format-detection" content="telephone=yes" />
+
+	<!-- APPLE TOUCH ICON -->
+	<link rel="icon" sizes="16x16" href="favicon.png" type="image/png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-ipad.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-iphone4.png" />
+
+	<!-- HUMANS -->
+    <link type="text/plain" rel="author" href="/humans.txt" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="">
 </head>
 <body>
-	
+
+	<!-- Centro -->
+	<div class="canvas-principal" id="canvas-principal">
+		<header class="canvas-topo">
+			<a href="#" class="menu">Menu</a>
+
+			<h1 class="logo">
+				<a href="" class="logo-link">Logo</a>
+			</h1>
+
+			<figure class="avatar-usuario">
+				<img src="" alt="Imagem do usuário" />
+			</figure>
+		</header>
+
+		<section class="receitas" id="receitas">
+			<aside class="feeds">
+				<ul class="feeds-preview">
+					<li class="feeds-item">
+						<h2 class="titulo-item">Minha receita 1</h2>
+						<a href="#" class="feeds-link">link pra minha receita 1</a>
+					</li>
+
+					<li class="feeds-item">
+						<h2 class="titulo-item">Minha receita 2</h2>
+						<a href="#" class="feeds-link">link pra minha receita 2</a>
+					</li>
+
+					<li class="feeds-item">
+						<h2 class="titulo-item">Minha receita 3</h2>
+						<a href="#" class="feeds-link">link pra minha receita 3</a>
+					</li>
+				</ul>
+			</aside>
+
+			<article class="conteudo-receitas">
+				<h2 class="titulo-receita">Título da Receita</h2>
+				<ul class="lista-receita">
+					<li class="ingrediente-receita">Ingrediente 1</li>
+					<li class="ingrediente-receita">Ingrediente 2</li>
+					<li class="ingrediente-receita">Ingrediente 3</li>
+				</ul>
+				<p class="preparo-receita">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ratione.</p>
+				<p class="rendimento-receita">10 porções</p>
+				<h3 class="categoria-receita">CATEGORIA</h3>
+				<time class="tempo-receita">1h 30m</time>
+			</article>
+		</section>
+	</div>
+
+
+	<!-- Esquerda -->
+	<div class="canvas-categorias" id="canvas-categorias">
+		<header class="busca-categoria">
+			<form action="#" class="form-receitas" id="form-receitas" method="">
+				<input type="search" class="receitas-pesquisa" />
+			</form>
+		</header>
+
+		<section class="categorias">
+			<ul class="lista-categorias">
+				<li class="item-categorias"><a href="#" class="link-categorias">carnes</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">aves</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">peixes</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">massas</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">bebidas</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">saladas</a></li>
+				<li class="item-categorias"><a href="#" class="link-categorias">sobremesas</a></li>
+
+				<li class="sobre"><a href="#" class="sobre-link">Sobre</a></li>
+			</ul>
+		</section>
+	</div>
+
+
+	<!-- Direita -->
+	<div class="canvas-perfil-login" id="canvas-perfil-login">
+		<!-- deslogado -->
+		<section class="deslogado" id="deslogado">
+			<article class="acesso">
+				<!-- usuário cadastrado -->
+				<div class="usuario-cadastrado">
+					<form class="form-acesso" id="form-acesso" action="" method="">
+						<h2 class="form-titulo">Acesso</h2>
+
+						<fieldset>
+							<label for="acesso-login">Login</label>
+							<input type="text" id="acesso-login" name="Login" />
+						</fieldset>
+
+						<fieldset>
+							<label for="acesso-senha" >Senha</label>
+							<input type="password" id="acesso-senha" name="Senha" />
+						</fieldset>
+
+						<input type="submit" value="entrar" class="input-submit" />
+						<a href="#" title="Clique aqui se você esqueceu a sua senha" class="esqueci-senha">esqueci a senha</a>
+					</form>
+
+					<p class="retorno-formulario">Entrando...</p>
+				</div>
+
+				<!-- esqueci a senha -->
+				<div class="esqueci-senha">
+					<form class="form-esqueci-senha" id="form-esqueci-senha" action="" method="">
+						<h2 class="form-titulo">Esqueci Senha</h2>
+
+						<fieldset>
+							<label for="esqueci-senha">Login</label>
+							<input type="email" id="esqueci-senha" name="Login" />
+						</fieldset>
+
+						<input type="submit" value="entrar" class="input-submit" />
+					</form>
+
+					<p class="retorno-formulario">Os passos para mudar de senha estão no seu e-mail</p>
+				</div>
+			</article>
+
+			<article class="cadastro">
+				<!-- formulario cadastro-->
+				<div class="novo-usuario">
+					<form class="form-cadastro" id="form-cadastro" action="" method="">
+						<h2 class="form-titulo">Cadastro</h2>
+
+						<fieldset>
+							<label for="cadastro-login">Login</label>
+							<input type="text" id="cadastro-login" name="Login" />
+						</fieldset>
+
+						<fieldset>
+							<label for="cadastro-senha" >Senha</label>
+							<input type="password" id="cadastro-senha" name="Senha" />
+						</fieldset>
+
+						<input type="submit" value="entrar" class="input-submit" />
+					</form>
+
+					<p class="retorno-formulario">Seu cadastro foi efetuado com sucesso!</p>
+				</div>
+			</article>
+		</section>
+
+		<!-- logado -->
+		<section class="logado" id="logado">
+			<header class="perfil-topo">
+				<figure class="img-avatar">
+					<img src="" alt="Imagem do Usuário" />
+				</figure>
+
+				<h2 class="nome-usuario">Seu Zé</h2>
+			</header>
+
+			<article class="receitas-usuario">
+				<h1>Minhas Receitas</h1>
+
+				<ul class="receitas-atalhos">
+					<li class="receita-atalho-item"><a href="#" class="receita-atalho-link">Adicionar Receita</a></li>
+					<li class="receita-atalho-item"><a href="#" class="receita-atalho-link">Minhas Receitas</a></li>
+					<li class="receita-atalho-item"><a href="#" class="receita-atalho-link">Receitas Favoritas</a></li>
+				</ul>
+			</article>
+
+			<article class="perfil-usuario">
+				<h1>Meu Perfil</h1>
+
+				<a href="#" title="Clique aqui para configurar" class="perfil-link alterar-senha">Alterar senha</a>
+				<button class="sair">Sair</button>
+			</article>
+		</section>
+	</div>
+
 </body>
 </html>
