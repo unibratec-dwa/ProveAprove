@@ -14,18 +14,24 @@ if(!is_numeric($_GET['id'])) {
 $id = $_GET['id'];
 $query = "select * from receita where id = ".$id;
 $resultado = mysqli_query($conexao,$query);
+$totalDeResultados = mysqli_num_rows($resultado);
 
-$campo = 'titulo';
+$json = array();
+$json['dados'] = array();
 
-if(mysqli_num_rows($resultado) == 0) {
-	echo "Nenhuma receita foi encontrada com esse id.";
-	exit;
+if($totalDeResultados > 0) {
+	$json['status'] = TRUE;
+	while($receita = mysqli_fetch_object($resultado)) {
+		//4 - Apresentação do resultado
+		$json['dados'][] = $receita;
+	}
+
+} else {
+	$json['status'] = FALSE;
+	$json['message'] = "Nenhuma receita foi encontrada";
 }
 
-//3 - Exploração do resultado
-while($receita = mysqli_fetch_object($resultado)) {
-	//4 - Apresentação do resultado
-	echo json_encode($receita);
-}
+echo json_encode($json);
+
 
 ?>
