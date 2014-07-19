@@ -23,7 +23,7 @@ $json['status'] = FALSE;
 $json['dados'] = array();
 
 
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
+if(isset($_GET['id'])) {
 	$id = $_GET['id'];
 }
 
