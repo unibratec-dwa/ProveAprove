@@ -10,9 +10,11 @@ $senha = "123456";
 $banco = "ProveAprove";
 
 $conexao = mysqli_connect($host, $usuario, $senha, $banco);
+mysqli_query($conexao, "SET NAMES 'utf8';");
 
 //Definir a consulta por todas as categorias em ordem alfabética decrescente
 $consulta = "SELECT * FROM categoria ORDER BY titulo ASC";
+
 $resultados = mysqli_query($conexao, $consulta);
 $totalDeResultados = mysqli_num_rows($resultados);
 
