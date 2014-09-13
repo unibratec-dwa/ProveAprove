@@ -9,7 +9,10 @@ APP.Categorias = {
 
 
 	registrarEventos: function() {
-
+		$(".lista-categorias").on("click", '.item-categorias a', function(){
+			var id = $(this).attr('href').split("-")[1];
+			APP.Receitas.categoria(id)
+		});
 	},
 
 	carregarDados: function() {
