@@ -23,7 +23,7 @@
     <link type="text/plain" rel="author" href="/humans.txt" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="bibliotecas/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -80,8 +80,8 @@
 	<!-- Esquerda -->
 	<div class="canvas-categorias" id="canvas-categorias">
 		<header class="busca-categoria">
-			<form action="#" class="form-receitas" id="form-receitas" method="">
-				<input type="search" class="receitas-pesquisa" />
+			<form action="buscarReceita.php" class="form-receitas" id="form-receitas" method="">
+				<input type="search" name="texto" class="receitas-pesquisa" />
 			</form>
 		</header>
 
@@ -199,6 +199,11 @@
 			</article>
 		</section>
 	</div>
-
+	<script src="bibliotecas/APP.js/APP.js"></script>
+	<script src="bibliotecas/jquery/dist/jquery.min.js"></script>
+	<script src="bibliotecas/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="codigoFonte/js/APP.Busca.js"></script>
+	<script src="codigoFonte/js/APP.Categorias.js"></script>
+	<script>APP.init(APP.Busca, APP.Categorias);</script>
 </body>
 </html>
