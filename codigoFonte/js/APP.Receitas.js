@@ -5,15 +5,13 @@ APP.Receitas = {
 	setUp: function() {
 
 	},
-
 	favoritos: function(usuario) {
 		this.carregar('favoritos', usuario);
 	},
-
 	categoria: function(categoria) {
 		this.carregar('categoria', categoria);
 	},
-
+	
 	carregar: function(filtro, id) {
 		jQuery.ajax({
 			url: this._url,

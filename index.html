@@ -24,11 +24,15 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="bibliotecas/bootstrap/dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="codigoFonte/css/APP.css">
+	<link rel="stylesheet" href="codigoFonte/css/APP.Categorias.css">
 </head>
 <body>
 
+<div id="app" class="container-fluid">
 	<!-- Centro -->
-	<div class="canvas-principal" id="canvas-principal">
+	<div class="canvas-principal col-sm-6 col-sm-push-3" id="canvas-principal">
 		<header class="canvas-topo">
 			<a href="#" class="menu">Menu</a>
 
@@ -78,23 +82,16 @@
 
 
 	<!-- Esquerda -->
-	<div class="canvas-categorias" id="canvas-categorias">
+	<div class="canvas-categorias col-sm-3 col-sm-pull-6" id="canvas-categorias">
 		<header class="busca-categoria">
 			<form action="buscarReceita.php" class="form-receitas" id="form-receitas" method="">
 				<input type="search" name="texto" class="receitas-pesquisa" />
 			</form>
 		</header>
 
-		<section class="categorias">
-			<ul class="lista-categorias">
-				<li class="item-categorias"><a href="#" class="link-categorias">carnes</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">aves</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">peixes</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">massas</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">bebidas</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">saladas</a></li>
-				<li class="item-categorias"><a href="#" class="link-categorias">sobremesas</a></li>
-
+		<section id="modulo-categorias" data-ajax-status="Aguardando dados..." class="categorias">
+			<ul class="lista-categorias ajax-conteudo">
+				
 				<li class="sobre"><a href="#" class="sobre-link">Sobre</a></li>
 			</ul>
 		</section>
@@ -102,7 +99,7 @@
 
 
 	<!-- Direita -->
-	<div class="canvas-perfil-login" id="canvas-perfil-login">
+	<div class="canvas-perfil-login col-sm-3" id="canvas-perfil-login">
 		<!-- deslogado -->
 		<section class="deslogado" id="deslogado">
 			<article class="acesso">
@@ -199,6 +196,7 @@
 			</article>
 		</section>
 	</div>
+</div>
 	<script src="bibliotecas/APP.js/APP.js"></script>
 	<script src="bibliotecas/jquery/dist/jquery.min.js"></script>
 	<script src="bibliotecas/bootstrap/dist/js/bootstrap.min.js"></script>

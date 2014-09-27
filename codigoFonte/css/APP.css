@@ -1,0 +1,7 @@
+.ajax-carregando::before, .ajax-erro::before {
+	content: attr(data-ajax-status);
+}
+.ajax-carregando .ajax-conteudo,
+.ajax-erro .ajax-conteudo {
+	display: none;
+}
