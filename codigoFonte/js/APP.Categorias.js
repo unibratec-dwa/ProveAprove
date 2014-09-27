@@ -1,5 +1,8 @@
 var APP = APP || {};
+
 APP.Categorias = {
+	_extend: ["Once", "Ajax"],
+
 
 	_url: "categorias.php",
 	_id: "#modulo-categorias",
@@ -17,33 +20,50 @@ APP.Categorias = {
 
 
 	registrarEventos: function() {
-		$(".lista-categorias").on("click", '.item-categorias a', function(){
-			var id = $(this).attr('href').split("-")[1];
+		$("#modulo-categorias, #modulo-receitas").on("click", "a[href^='#receitas-categoria']", function(){
+			var id = $(this).attr('href').split("receitas-categoria-")[1];
 			APP.Receitas.categoria(id)
 		});
 	},
 
 	carregar: function() {
-		var carregando, carregou, naoCarregou;
+		var dadosLocalStorage, carregando, carregou, naoCarregou;
 
-		carregou = APP.delegate(this, this.carregou);
-		carregando = APP.delegate(this, this.carregando);
-		naoCarregou = APP.delegate(this, this.naoCarregou);
+		if(localStorage.getItem(this._id) !== null) {
+			dadosLocalStorage = localStorage.getItem(this._id);
+			this.escreverDados(JSON.parse(dadosLocalStorage))
 
-		//Ajax
-		jQuery.ajax({
-			url: this._url,
-			beforeSend: carregando,
-			success: carregou,
-			error: naoCarregou
-		})
+		} 
+		//else {
+			carregou = APP.delegate(this, this.carregou);
+			carregando = APP.delegate(this, this.carregando);
+			naoCarregou = APP.delegate(this, this.naoCarregou);
+
+
+			console.log('carregar')
+			//Ajax
+			jQuery.ajax({
+				url: this._url,
+				beforeSend: carregando,
+				success: carregou,
+				error: naoCarregou
+			})
+		//}
 	},
 
 	carregando: function() {
 		$(this._id)
 			.attr(this._attrStatus,this._carregando)
 			.removeClass(this._classErro)
-			.addClass(this._classCarregando);
+			//.addClass(this._classCarregando);
+			//
+			console.log('carregando')
+	},
+	naoCarregou: function() {
+		$(this._id)
+			.attr(this._attrStatus, this._erroAjax)
+			.removeClass(this._classCarregando)
+			.addClass(this._classErro)
 	},
 
 	carregou: function(resposta){
@@ -51,8 +71,11 @@ APP.Categorias = {
 			.removeClass(this._classErro)
 			.removeClass(this._classCarregando)
 
+			console.log('carregou')
+
 		if(resposta.status === true){
 			this.escreverDados(resposta.dados);
+			localStorage.setItem(this._id, JSON.stringify(resposta.dados));
 		} else {
 			$(this._id)
 				.attr(this._attrStatus, resposta.message)
@@ -62,12 +85,7 @@ APP.Categorias = {
 			.removeClass(this._classCarregando);
 	},
 
-	naoCarregou: function() {
-		$(this._id)
-			.attr(this._attrStatus, this._erroAjax)
-			.removeClass(this._classCarregando)
-			.addClass(this._classErro)
-	},
+	
 
 	escreverDados: function(dados) {
 
@@ -80,7 +98,7 @@ APP.Categorias = {
 
 			$("<a>")
 				.addClass('link-categorias')
-				.attr('href', "#categoria-"+dado.id)
+				.attr('href', "#receitas-categoria-"+dado.id)
 				.text(dado.titulo)
 				.appendTo(li);
 

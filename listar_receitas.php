@@ -1,4 +1,5 @@
 <?php
+//header("HTTP/1.0 404 Not Found");
 header("Content-type: application/json; charset=utf-8");
 
 include("inc.conexao.php");
@@ -76,6 +77,7 @@ ORDER BY categoria, titulo";
 						r.titulo, 
 						u.nome 	as 'autor', 
 						c.titulo	as 'categoria', 
+						c.id	as 'categoriaId', 
 						IFNULL(ROUND(AVG(ur.nota),1),0)	as 'media',
 						IFNULL(SUM(ur.gostou),0) 		as 'gostou', 
 						IFNULL(SUM(ur.favorito),0) 	as 'favorita'
@@ -103,6 +105,18 @@ ORDER BY categoria, titulo";
 
 if($json['status'] == TRUE) {
 	$resultado = mysqli_query($conexao, $query);
+
+
+	$totalDeResultados = mysqli_num_rows($resultado);
+	if($totalDeResultados == 0) {
+		$json['status'] = FALSE;
+		$json['message'] = "Nenhuma receita encontrada.";
+
+	} else {
+		while($receita = mysqli_fetch_object($resultado)){
+			$json['dados'][] = $receita;
+		}
+	}
 
 	while($receita = mysqli_fetch_object($resultado)){
 		$json['dados'][] = $receita;
